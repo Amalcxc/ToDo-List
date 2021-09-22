@@ -19,6 +19,7 @@ const tasks = [
 
 const list = document.querySelector('ul')
   tasks.forEach((item, i)=>{
+   
     var li = document.createElement("li");
     li.className = 'list-item';
     li.innerText = tasks[i].title
@@ -26,19 +27,9 @@ const list = document.querySelector('ul')
     var checkbox = document.createElement("INPUT");
     checkbox.setAttribute("type", "checkbox");
     li.appendChild(checkbox)
+    
   })
 
-const input = document.querySelector('.input')
-const btn = document.querySelector(".btn")
-const li = document.createElement("li");
+const form = document.querySelector('form')
 
-input.addEventListener('input', word => {
-  li.textContent = word.target.value
-})
-
-const savetoLocal = () => {
-  localStorage.setItem('textinput', li.textContent )
-  list.appendChild(li)
-}
-
-btn.addEventListener('click', savetoLocal)
+form.addEventListener('submit')

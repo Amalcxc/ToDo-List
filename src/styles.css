@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #f6f6f6;
+}
+
+.form {
+  padding-top: 20px;
+}
+
+.form input[type="text"] {
+  outline: none;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-size: 1.5rem;
+  font-style: italic;
+  padding: 12px 18px;
+  width: 99%;
+}
+
+
+.list-item {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 18px;
+  font-size: large;
+}
+
+.list-item:nth-child(1n + 2) {
+  border-top: 1px solid #ddd;
+}
+
+
+

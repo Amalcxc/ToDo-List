@@ -16,9 +16,6 @@ const tasks = [
     index: 3
   }]
 
- 
-var newtodo = []
-
 
 const list = document.querySelector('ul')
   tasks.forEach((item, i)=>{
@@ -31,31 +28,17 @@ const list = document.querySelector('ul')
     li.appendChild(checkbox)
   })
 
-
-
 const input = document.querySelector('.input')
 const btn = document.querySelector(".btn")
-const storedInput = localStorage.getItem('')
-const p = document.querySelector("p")
-var li = document.createElement("li");
-
-if(input){
-  p.textContent = storedInput
-
-}
-
+const li = document.createElement("li");
 
 input.addEventListener('input', word => {
-  p.textContent = word.target.value
+  li.textContent = word.target.value
 })
 
 const savetoLocal = () => {
-  localStorage.setItem('textinput', p.textContent )
-  
+  localStorage.setItem('textinput', li.textContent )
+  list.appendChild(li)
 }
 
 btn.addEventListener('click', savetoLocal)
-
-
-
-console.log(newtodo)

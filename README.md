@@ -11,7 +11,7 @@ To Do list: list structure
 
 # Live Demo
 
-- [Awesome Books](hhttps://amalcxc.github.io/ToDo-List/)
+- [Todo List](https://amalcxc.github.io/ToDo-List/)
 
 # Getting Started
 

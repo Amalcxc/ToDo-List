@@ -11,11 +11,16 @@ html {
 body {
   font-family: 'Open Sans', sans-serif;
   background: #f6f6f6;
+  padding-top: 8%;
 }
 
 .form {
-  padding-top: 10%;
   width: 600px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.12);
+}
+
+h2 {
+  padding: 12px;
 }
 
 .container {
@@ -51,3 +56,15 @@ body {
 
 
 
+.clear {
+  background: #f6f6f6;
+  text-align: center;
+  padding: 18px;
+  border-top: 1px solid #ddd;
+}
+
+.clear a {
+  text-decoration: none;
+  color: #666;
+  font-size: 1.3rem;
+}

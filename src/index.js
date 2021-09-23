@@ -1,22 +1,8 @@
 import './styles.css';
+import {update} from './storage.js';
 
-const tasks = [{
-  title: 'first',
-  completed: false,
-  index: 1,
-},
-{
-  title: 'second',
-  completed: false,
-  index: 2,
-},
-{
-  title: 'third',
-  completed: false,
-  index: 3,
-}];
+const tasks = JSON.parse(window.localStorage.getItem('completed')); 
 
-var ischeck;
 const list = document.querySelector('ul');
 
 tasks.forEach((item, i) => {
@@ -26,24 +12,20 @@ tasks.forEach((item, i) => {
   list.appendChild(li);
   const checkbox = document.createElement('INPUT');
   checkbox.setAttribute('type', 'checkbox');
+  checkbox.checked = tasks[i].completed
   checkbox.id = 'checkbox'
   li.appendChild(checkbox);
   checkbox.addEventListener( 'change', function() {
     if(this.checked) {
-        tasks[i].completed = true;
-        window.localStorage.setItem('completed', JSON.stringify(tasks))
+        tasks[i].completed = true; 
+        update(tasks)
     } else {
         tasks[i].completed = false;
-        window.localStorage.setItem('completed', JSON.stringify(tasks))
+        update(tasks)
     }
   });
-  ischeck = JSON.parse(window.localStorage.getItem('completed'));
 });
-
-console.log(ischeck)
-
-
-
+console.log(tasks)
 const form = document.querySelector('form');
 
 form.addEventListener('submit');

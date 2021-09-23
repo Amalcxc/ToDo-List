@@ -2,6 +2,20 @@ function update(tasks) {
   window.localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+function changeStatus(checkbox, index) {
+  const tasks = load();
+  checkbox.addEventListener('change', function () {
+    if (this.checked) {
+      tasks[index].completed = true;
+      update(tasks);
+    } else {
+      tasks[index].completed = false;
+      update(tasks);
+    }
+  });
+}
+
+
 function load() {
   let list = [{
     title: 'first',
@@ -25,4 +39,6 @@ function load() {
   return list;
 }
 
-export { update, load };
+
+
+export { update, load, changeStatus };

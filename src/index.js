@@ -1,8 +1,7 @@
 import './styles.css';
-import { update, load } from './storage.js';
+import { update, load, changeStatus} from './storage.js';
 
 const tasks = load();
-
 const list = document.querySelector('ul');
 
 tasks.forEach((item, i) => {
@@ -15,15 +14,7 @@ tasks.forEach((item, i) => {
   checkbox.checked = tasks[i].completed;
   checkbox.id = 'checkbox';
   li.appendChild(checkbox);
-  checkbox.addEventListener('change', function () {
-    if (this.checked) {
-      tasks[i].completed = true;
-      update(tasks);
-    } else {
-      tasks[i].completed = false;
-      update(tasks);
-    }
-  });
+  changeStatus(checkbox, i);
 });
 
 const form = document.querySelector('form');

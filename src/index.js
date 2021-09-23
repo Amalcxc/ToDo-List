@@ -25,7 +25,7 @@ tasks.forEach((item, i) => {
     }
   });
 });
-console.log(tasks);
+
 
 const form = document.querySelector('form');
 

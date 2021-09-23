@@ -1,7 +1,7 @@
 import './styles.css';
-import { update } from './storage.js';
+import { update, load } from './storage.js';
 
-const tasks = JSON.parse(window.localStorage.getItem('completed'));
+const tasks = load() 
 
 const list = document.querySelector('ul');
 
@@ -26,6 +26,7 @@ tasks.forEach((item, i) => {
   });
 });
 console.log(tasks);
+
 const form = document.querySelector('form');
 
-form.addEventListener('submit');
+form.addEventListener('submit', );

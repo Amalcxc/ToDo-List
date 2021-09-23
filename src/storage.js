@@ -1,5 +1,5 @@
 function update(tasks) {
-  window.localStorage.setItem('completed', JSON.stringify(tasks));
+  window.localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 function load() {
@@ -19,7 +19,7 @@ function load() {
     index: 3,
   }];
 
-  if (JSON.parse(localStorage.getItem('tasks')) === null) {
+  if (JSON.parse(localStorage.getItem('tasks'))) {
     list = JSON.parse(localStorage.getItem('tasks'));
   }
   return list;

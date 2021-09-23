@@ -19,6 +19,11 @@ To Do list: list structure
   - git clone https://github.com/Amalcxc/ToDo-List.git
   - Go to the cloned directory: cd  ToDo-List/
 
+  # set up
+
+  - Run "npm install" to install the necessary packages to run locally
+  - Run "npx webpack server" and your default browser will open with the page
+
 # Author
 
 ## 👤 Author

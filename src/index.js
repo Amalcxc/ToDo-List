@@ -1,7 +1,7 @@
 import './styles.css';
 import { update, load } from './storage.js';
 
-const tasks = load() 
+const tasks = load();
 
 const list = document.querySelector('ul');
 
@@ -29,4 +29,4 @@ console.log(tasks);
 
 const form = document.querySelector('form');
 
-form.addEventListener('submit', );
+form.addEventListener('submit');

@@ -1,5 +1,5 @@
 import './styles.css';
-import { update, load, changeStatus} from './storage.js';
+import { update, load, changeStatus } from './storage.js';
 
 const tasks = load();
 const list = document.querySelector('ul');

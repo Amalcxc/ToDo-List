@@ -15,7 +15,6 @@ function changeStatus(checkbox, index) {
   });
 }
 
-
 function load() {
   let list = [{
     title: 'first',
@@ -38,7 +37,5 @@ function load() {
   }
   return list;
 }
-
-
 
 export { update, load, changeStatus };

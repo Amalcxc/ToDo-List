@@ -1,4 +1,4 @@
-function update(tasks){
+function update(tasks) {
   window.localStorage.setItem('completed', JSON.stringify(tasks));
 }
 
@@ -19,11 +19,10 @@ function load() {
     index: 3,
   }];
 
-  if (JSON.parse(localStorage.getItem('tasks')) == null) {
+  if (JSON.parse(localStorage.getItem('tasks')) === null) {
     list = JSON.parse(localStorage.getItem('tasks'));
   }
   return list;
-};
+}
 
-
-export {update, load}
+export { update, load };

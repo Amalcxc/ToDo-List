@@ -26,7 +26,6 @@ tasks.forEach((item, i) => {
   });
 });
 
-
 const form = document.querySelector('form');
 
 form.addEventListener('submit');

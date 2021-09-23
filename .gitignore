@@ -1,5 +1,9 @@
 node_modules
- .lintrc
- .stylelintrc.json
- .hintrc
- 
+
+.lintrc
+
+.stylelintrc.json
+
+.hintrc
+
+.eslintrc.json

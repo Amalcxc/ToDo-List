@@ -2,19 +2,6 @@ function update(tasks) {
   window.localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-function changeStatus(checkbox, index) {
-  const tasks = load();
-  checkbox.addEventListener('change', function () {
-    if (this.checked) {
-      tasks[index].completed = true;
-      update(tasks);
-    } else {
-      tasks[index].completed = false;
-      update(tasks);
-    }
-  });
-}
-
 function load() {
   let list = [{
     title: 'first',
@@ -36,6 +23,19 @@ function load() {
     list = JSON.parse(localStorage.getItem('tasks'));
   }
   return list;
+}
+
+function changeStatus(checkbox, index) {
+  const tasks = load();
+  checkbox.addEventListener('change', function () {
+    if (this.checked) {
+      tasks[index].completed = true;
+      update(tasks);
+    } else {
+      tasks[index].completed = false;
+      update(tasks);
+    }
+  });
 }
 
 export { update, load, changeStatus };

@@ -7,3 +7,5 @@ node_modules
 .hintrc
 
 .eslintrc.json
+
+.DS_store

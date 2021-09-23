@@ -1,22 +1,9 @@
 import './styles.css';
+import { load, changeStatus } from './storage.js';
 
-const tasks = [{
-  title: 'first',
-  completed: false,
-  index: 1,
-},
-{
-  title: 'second',
-  completed: false,
-  index: 2,
-},
-{
-  title: 'third',
-  completed: false,
-  index: 3,
-}];
-
+const tasks = load();
 const list = document.querySelector('ul');
+
 tasks.forEach((item, i) => {
   const li = document.createElement('li');
   li.className = 'list-item';
@@ -24,7 +11,10 @@ tasks.forEach((item, i) => {
   list.appendChild(li);
   const checkbox = document.createElement('INPUT');
   checkbox.setAttribute('type', 'checkbox');
+  checkbox.checked = tasks[i].completed;
+  checkbox.id = 'checkbox';
   li.appendChild(checkbox);
+  changeStatus(checkbox, i);
 });
 
 const form = document.querySelector('form');

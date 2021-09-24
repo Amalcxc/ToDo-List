@@ -14,19 +14,16 @@ body {
   padding-top: 8%;
 }
 
-.form {
-  width: 600px;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.12);
-}
 
 h2 {
   padding: 12px;
 }
 
 .container {
-  display: flex;
   justify-content: center;
   align-items: center;
+  width: 600px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.12);
 }
 
 .form input[type="text"] {

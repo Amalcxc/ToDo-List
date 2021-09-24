@@ -5,23 +5,17 @@ import { load, update} from "./dynamic-list";
 const list = document.querySelector('ul');
 const input = document.querySelector('.input')
 const tasks = load();
+const todoList = document.querySelector('ul')
 
 
 
 function addTodo(e) {
-  //Prevent natural behaviour
   e.preventDefault();
   //Create list
   creatitem(input.value)
- 
   const newTodo = document.createElement("li");
   newTodo.innerText = input.value;
   newTodo.className = 'list-item';
-  //Save to local - do this last
-  //Save to local
-  
-  // 
-  // //
   list.appendChild(newTodo);
   input.value = "";
   //Create Completed Button
@@ -35,13 +29,11 @@ function addTodo(e) {
     console.log('hello')
   });
   
-  //Create trash button
-  // const trashButton = document.createElement("button");
-  // trashButton.innerHTML = `<i class="fas fa-trash"></i>`;
-  // trashButton.classname = "trash-btn";
-  // trashButton.className = 'list-item';
-  // list.appendChild(trashButton);
-
+  // // Create trash button
+  const trashButton = document.createElement("button");
+  trashButton.innerHTML = 'DELET';
+  trashButton.className = 'trash-btn';
+  newTodo.appendChild(trashButton)
 }
 
 function creatitem(task){
@@ -53,9 +45,6 @@ function creatitem(task){
   tasks.push(newtask)
   update(tasks);
 }
-
-
-console.log(tasks)
 
 function changeStatus(checkbox, index) {
   if (tasks[index].completed === true) {
@@ -80,7 +69,37 @@ tasks.forEach((item, i) => {
   checkbox.addEventListener('change', function () {
     changeStatus(checkbox, i);
   });
+  const trashButton = document.createElement("button");
+  trashButton.innerHTML = 'DELET';
+  trashButton.className = 'trash-btn';
+  li.appendChild(trashButton)
 });
+
+todoList.addEventListener("click", deleteitem);
+
+function deleteitem(e){ 
+  const item = e.target;
+  console.log(item.parentElement)
+  if (item.classList[0] === "trash-btn") {
+    const todo = item.parentElement;
+    todo.remove();
+    removeLocalTodos(todo);
+  }
+}
+
+function removeLocalTodos(tasks) {
+  if (localStorage.getItem("tasks") === null) {
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+  console.log(tasks.children)
+  const taskIndex = tasks.children;
+  tasks.splice(tasks.indexOf(taskIndex), 1);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+
+
 
 
 export{addTodo}

@@ -81,7 +81,7 @@ function newTask(){
       changeStatus(checkbox, i);
     });
     const trashButton = document.createElement("button");
-    trashButton.innerHTML = 'DELET';
+    trashButton.innerText = 'DELET';
     trashButton.className = 'trash-btn';
     li.appendChild(trashButton)
   
@@ -99,7 +99,6 @@ function newTask(){
       const anotherT = document.querySelector(`li[id="${newId}"]`) 
       anotherT.innerHTML = newTask
     })
-  
   });
 }
 

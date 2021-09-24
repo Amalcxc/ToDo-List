@@ -1,22 +1,16 @@
 import './styles.css';
-import { load, changeStatus } from './storage.js';
+import { load, changeStatus } from './dynamic-list.js';
+import {addTodo, NewTask} from './items.js';
 
-const tasks = load();
+
+
 const list = document.querySelector('ul');
 
-tasks.forEach((item, i) => {
-  const li = document.createElement('li');
-  li.className = 'list-item';
-  li.innerText = tasks[i].title;
-  list.appendChild(li);
-  const checkbox = document.createElement('INPUT');
-  checkbox.setAttribute('type', 'checkbox');
-  checkbox.checked = tasks[i].completed;
-  checkbox.id = 'checkbox';
-  li.appendChild(checkbox);
-  changeStatus(checkbox, i);
-});
+const form = document.querySelector('.form')
 
-const form = document.querySelector('form');
+form.addEventListener("submit", addTodo);
 
-form.addEventListener('submit');
+
+
+
+

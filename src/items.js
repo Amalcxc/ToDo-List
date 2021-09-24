@@ -16,6 +16,7 @@ function addTodo(e) {
   const newTodo = document.createElement("li");
   newTodo.innerText = input.value;
   newTodo.className = 'list-item';
+  
   list.appendChild(newTodo);
   input.value = "";
   //Create Completed Button
@@ -26,7 +27,6 @@ function addTodo(e) {
   
   checkbox.addEventListener('change', function () {
     changeStatus(checkbox, tasks.length -1);
-    console.log('hello')
   });
   
   // // Create trash button
@@ -34,6 +34,14 @@ function addTodo(e) {
   trashButton.innerHTML = 'DELET';
   trashButton.className = 'trash-btn';
   newTodo.appendChild(trashButton)
+
+  // // Create edit button
+  const editButton = document.createElement("button");
+  editButton.innerHTML = 'edit';
+  editButton.className = 'edit-btn';
+  newTodo.appendChild(editButton)
+  
+  
 }
 
 function creatitem(task){
@@ -56,30 +64,52 @@ function changeStatus(checkbox, index) {
   }
 }
 
-tasks.forEach((item, i) => {
-  const li = document.createElement('li');
-  li.className = 'list-item';
-  li.innerText = tasks[i].description;
-  list.appendChild(li);
-  const checkbox = document.createElement('INPUT');
-  checkbox.setAttribute('type', 'checkbox');
-  checkbox.checked = tasks[i].completed;
-  checkbox.id = 'checkbox';
-  li.appendChild(checkbox);
-  checkbox.addEventListener('change', function () {
-    changeStatus(checkbox, i);
+function newTask(){
+  list.innerHTML = '';
+  tasks.forEach((item, i) => {
+    const li = document.createElement('li');
+    li.className = 'list-item';
+    li.innerText = tasks[i].description;
+    li.id = i;
+    list.appendChild(li);
+    const checkbox = document.createElement('INPUT');
+    checkbox.setAttribute('type', 'checkbox');
+    checkbox.checked = tasks[i].completed;
+    checkbox.id = 'checkbox';
+    li.appendChild(checkbox);
+    checkbox.addEventListener('change', function () {
+      changeStatus(checkbox, i);
+    });
+    const trashButton = document.createElement("button");
+    trashButton.innerHTML = 'DELET';
+    trashButton.className = 'trash-btn';
+    li.appendChild(trashButton)
+  
+     // // Create edit button
+     const editButton = document.createElement("button");
+     editButton.innerText = 'edit';
+     editButton.className = 'edit-btn';
+     li.appendChild(editButton)
+  
+     editButton.addEventListener("click", (event) => {
+      const newTask = prompt('enter');
+      const newId = event.target.parentNode.getAttribute('id')
+      tasks[newId].description = newTask;
+      update(tasks)
+      const anotherT = document.querySelector(`li[id="${newId}"]`) 
+      anotherT.innerHTML = newTask
+    })
+  
   });
-  const trashButton = document.createElement("button");
-  trashButton.innerHTML = 'DELET';
-  trashButton.className = 'trash-btn';
-  li.appendChild(trashButton)
-});
+}
+
 
 todoList.addEventListener("click", deleteitem);
 
+
+
 function deleteitem(e){ 
   const item = e.target;
-  console.log(item.parentElement)
   if (item.classList[0] === "trash-btn") {
     const todo = item.parentElement;
     todo.remove();
@@ -92,7 +122,7 @@ function removeLocalTodos(tasks) {
   } else {
     tasks = JSON.parse(localStorage.getItem("tasks"));
   }
-  console.log(tasks.children)
+
   const taskIndex = tasks.children;
   tasks.splice(tasks.indexOf(taskIndex), 1);
   localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -102,4 +132,4 @@ function removeLocalTodos(tasks) {
 
 
 
-export{addTodo}
+export{addTodo, newTask}

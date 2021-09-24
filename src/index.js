@@ -1,6 +1,6 @@
 import './styles.css';
 import { load, changeStatus } from './dynamic-list.js';
-import {addTodo, NewTask, deleteitem} from './items.js';
+import {addTodo, newTask, deleteitem} from './items.js';
 
 
 
@@ -11,5 +11,6 @@ const form = document.querySelector('.form')
 form.addEventListener("submit", addTodo);
 
 
-
+document.addEventListener('DOMContentLoaded', newTask());
+list.addEventListener('change', newTask());
 

@@ -5,7 +5,6 @@ import { load, update} from "./dynamic-list";
 const list = document.querySelector('ul');
 const input = document.querySelector('.input')
 const tasks = load();
-const todoList = document.querySelector('ul')
 
 
 
@@ -98,12 +97,13 @@ function newTask(){
       update(tasks)
       const anotherT = document.querySelector(`li[id="${newId}"]`) 
       anotherT.innerHTML = newTask
+
     })
   });
 }
 
 
-todoList.addEventListener("click", deleteitem);
+list.addEventListener("click", deleteitem);
 
 
 
@@ -126,6 +126,23 @@ function removeLocalTodos(tasks) {
   tasks.splice(tasks.indexOf(taskIndex), 1);
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+
+const clearAll = document.querySelector('.clear')
+
+clearAll.addEventListener("click", clear);
+
+function clear() {
+  let tasks;
+  if (localStorage.getItem('tasks') === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'));
+  }
+  const notCompletedTodos = tasks.filter((x) => x.completed === false);
+  tasks = notCompletedTodos;
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  window.location.reload()
+};
 
 
 

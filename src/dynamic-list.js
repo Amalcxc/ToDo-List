@@ -1,4 +1,3 @@
-
 function update(tasks) {
   window.localStorage.setItem('tasks', JSON.stringify(tasks));
 }
@@ -11,8 +10,5 @@ function load() {
   }
   return list;
 }
-
-
-
 
 export { update, load };

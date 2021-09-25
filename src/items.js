@@ -98,10 +98,10 @@ function newTask() {
 
 function removeLocalTodos(tasks) {
   if (localStorage.getItem('tasks') === null) {
+    // local
   } else {
     tasks = JSON.parse(localStorage.getItem('tasks'));
   }
-
   const taskIndex = tasks.children;
   tasks.splice(tasks.indexOf(taskIndex), 1);
   localStorage.setItem('tasks', JSON.stringify(tasks));

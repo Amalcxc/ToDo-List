@@ -14,19 +14,15 @@ body {
   padding-top: 8%;
 }
 
-.form {
-  width: 600px;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.12);
-}
-
 h2 {
   padding: 12px;
 }
 
 .container {
-  display: flex;
   justify-content: center;
   align-items: center;
+  width: 600px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.12);
 }
 
 .form input[type="text"] {
@@ -64,4 +60,15 @@ h2 {
   text-decoration: none;
   color: #666;
   font-size: 1.3rem;
+}
+
+button {
+  background-color: #555353;
+  border: none;
+  color: white;
+  padding: 3px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }

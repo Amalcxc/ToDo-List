@@ -56,6 +56,7 @@ function addTodo(e) {
   editButton.innerHTML = 'edit';
   editButton.className = 'edit-btn';
   newTodo.appendChild(editButton);
+  window.location.reload();
 }
 
 function newTask() {
@@ -84,7 +85,7 @@ function newTask() {
     editButton.innerText = 'edit';
     editButton.className = 'edit-btn';
     li.appendChild(editButton);
-
+    
     editButton.addEventListener('click', (event) => {
       const newTask = prompt('enter');
       const newId = event.target.parentNode.getAttribute('id');

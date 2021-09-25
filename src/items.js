@@ -85,7 +85,7 @@ function newTask() {
     editButton.innerText = 'edit';
     editButton.className = 'edit-btn';
     li.appendChild(editButton);
-    
+
     editButton.addEventListener('click', (event) => {
       const newTask = prompt('enter');
       const newId = event.target.parentNode.getAttribute('id');

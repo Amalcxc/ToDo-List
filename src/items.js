@@ -93,6 +93,7 @@ function newTask() {
       update(tasks);
       const anotherT = document.querySelector(`li[id="${newId}"]`);
       anotherT.innerHTML = newTask;
+      window.location.reload();
     });
   });
 }

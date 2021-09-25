@@ -8,6 +8,7 @@ function load() {
   if (JSON.parse(localStorage.getItem('tasks'))) {
     list = JSON.parse(localStorage.getItem('tasks'));
   }
+
   return list;
 }
 

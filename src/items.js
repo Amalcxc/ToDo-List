@@ -99,6 +99,7 @@ function newTask() {
 function removeLocalTodos(tasks) {
   if (localStorage.getItem('tasks') === null) {
     // local
+    tasks.sort((a, b) => a.index - b.index);
   } else {
     tasks = JSON.parse(localStorage.getItem('tasks'));
   }

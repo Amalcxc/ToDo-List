@@ -134,7 +134,11 @@ function clear() {
   tasks = notCompletedTodos;
   localStorage.setItem('tasks', JSON.stringify(tasks));
   window.location.reload();
+  
 }
 clearAll.addEventListener('click', clear);
 
 export { addTodo, newTask };
+
+
+
